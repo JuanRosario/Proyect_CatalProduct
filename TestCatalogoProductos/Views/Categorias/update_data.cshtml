@@ -1,0 +1,91 @@
+﻿
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div ng-app="Categoriasapp" ng-controller="CategoriasController" data-ng-init="loadrecord(@Convert.ToInt32(Request.QueryString["id"]))">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-2"></div>
+
+                <div class="col-sm-8">
+
+
+                    <br />
+                    <h2>Categorias</h2>
+                    <div class="form-group">
+
+                        <label>Nombre:</label>
+
+                        <input type="text" ng-model="Categorias.Nombre" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Descripcion</label>
+
+                        <input type="text" ng-model="Categorias.Descripcion" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+
+                        <label>Depende categoria</label>
+
+                        <input type="text" ng-model="Categorias.CategoriaDepende" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Tipo</label>
+
+                        <input type="text" ng-model="Categorias.Tipo" class="form-control" />
+
+                    </div>   
+    
+                    <div class="form-group">
+
+                        <input type="button" class="btn btn-primary" ng-click="updatedata()" value="{{btntext}}" />
+                      @*  @Html.ActionLink("Show_data", "Show_data", "Categorias", new { @class = "btn btn-primary" }, null)*@
+                        <input type="button" class="btn btn-primary" value="Show data" onclick="window.location = '/Categorias/Show_data';" />
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-2"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularController/CategoriasAngularJS.js"></script>
+</body>
+
+</html>

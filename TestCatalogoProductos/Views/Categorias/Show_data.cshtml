@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+
+    <style>
+        .tableData {
+            border-left: solid 1px #D8C3C3;
+            border-top: solid 1px #D8C3C3;
+        }
+
+
+
+            .tableData tr {
+            }
+
+
+
+            .tableData td, .tableData th {
+                border-right: solid 1px #D8C3C3;
+                border-bottom: solid 1px #D8C3C3;
+                text-align: left;
+                padding: 5px;
+            }
+
+
+
+            .tableData td {
+            }
+
+
+
+            .tableData th {
+                background-color: #FAFAFA;
+                padding: 7px 5px;
+                border-bottom-color: #9C9C9C;
+            }
+
+
+
+        .odd {
+            background-color: #f3f3f3;
+        }
+
+
+
+        .even {
+            background-color: #ffffff;
+        }
+    </style>
+
+
+
+</head>
+
+<body ng-app="Categoriasapp">
+
+    <div ng-controller="CategoriasController">
+
+        <table class="tableData">
+
+            <tr>
+                <th>Codigo</th>
+
+                <th>Nombre</th>
+
+                <th>Descripcion</th>                
+
+                <th>Categoria Depende</th>
+
+                <th>Tipo</th>
+            </tr>
+
+            <tr ng-repeat="e in record" ng-class-even="'even'" ng-class-odd="'odd'">
+
+                <td>{{e.IDCategorias}}</td>
+
+                <td>{{e.Nombre}}</td>
+
+                <td>{{e.Descripcion}}</td>              
+
+                <td>{{e.CategoriaDepende}}</td> @* de momento se quedaria si pero "aqui se deberia de mostra la despcion de la categoria  que depente no el ID""*@
+                <td>{{e.Tipo}}</td>  @* De momento mostraria el ID Lo mismo para este*@
+               
+
+                <td><a href="/Categorias/update_data?id={{e.IDCategorias}}">Update</a></td>
+
+                <td><a href="" ng-click="deleterecord(e.IDCategorias)">Delete</a></td>
+
+            </tr>
+
+        </table>
+        @Html.ActionLink("Agregar", "Index", "Categorias", new { @class = "btn btn-primary" }, null)
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularController/CategoriasAngularJS.js"></script>
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,123 @@
+﻿@*@{
+        ViewBag.Title = "Show_data";
+    }
+
+    <h2>Show_data</h2>
+
+    @{
+
+        Layout = null;
+
+    }*@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+
+    <style>
+        .tableData {
+            border-left: solid 1px #D8C3C3;
+            border-top: solid 1px #D8C3C3;
+        }
+
+
+
+            .tableData tr {
+            }
+
+
+
+            .tableData td, .tableData th {
+                border-right: solid 1px #D8C3C3;
+                border-bottom: solid 1px #D8C3C3;
+                text-align: left;
+                padding: 5px;
+            }
+
+
+
+            .tableData td {
+            }
+
+
+
+            .tableData th {
+                background-color: #FAFAFA;
+                padding: 7px 5px;
+                border-bottom-color: #9C9C9C;
+            }
+
+
+
+        .odd {
+            background-color: #f3f3f3;
+        }
+
+
+
+        .even {
+            background-color: #ffffff;
+        }
+    </style>
+
+
+
+</head>
+
+<body ng-app="Productosapp">
+
+    <div ng-controller="ProductosController">
+
+        <table class="tableData">
+
+            <tr>
+
+                <th>Codigo</th>
+
+                <th>Nombre</th>
+
+                <th>Descripcion</th>                
+
+                <th>Tipo</th>             
+
+            </tr>
+
+            <tr ng-repeat="e in record" ng-class-even="'even'" ng-class-odd="'odd'">
+
+                <td>{{e.IdProductos}}</td>
+
+                <td>{{e.Nombre}}</td>
+
+                <td>{{e.Descripcion}}</td>
+
+                <td>{{e.Tipo}}</td>               
+
+                <td><a href="/Productos/update_data?id={{e.IdProductos}}">Update</a></td>
+
+                <td><a href=""  ng-click="deleterecord(e.IdProductos)">Delete</a></td>
+
+            </tr>
+
+        </table>
+        @Html.ActionLink("Agregar", "Index", "Productos", new { @class = "btn btn-primary" }, null)
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularController/ProductosAngulaJS.js"></script>
+</body>
+
+</html>
+
+
+
+

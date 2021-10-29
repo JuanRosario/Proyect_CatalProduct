@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+
+    <style>
+        .tableData {
+            border-left: solid 1px #D8C3C3;
+            border-top: solid 1px #D8C3C3;
+        }
+
+
+
+            .tableData tr {
+            }
+
+
+
+            .tableData td, .tableData th {
+                border-right: solid 1px #D8C3C3;
+                border-bottom: solid 1px #D8C3C3;
+                text-align: left;
+                padding: 5px;
+            }
+
+
+
+            .tableData td {
+            }
+
+
+
+            .tableData th {
+                background-color: #FAFAFA;
+                padding: 7px 5px;
+                border-bottom-color: #9C9C9C;
+            }
+
+
+
+        .odd {
+            background-color: #f3f3f3;
+        }
+
+
+
+        .even {
+            background-color: #ffffff;
+        }
+    </style>
+
+
+
+</head>
+
+<body ng-app="TipoProductoapp">
+
+    <div ng-controller="TipoProductoController">
+
+        <table class="tableData">
+
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+
+                <th>Frágil</th>             
+            </tr>
+
+            <tr ng-repeat="e in record" ng-class-even="'even'" ng-class-odd="'odd'">
+
+                <td>{{e.IdTipoProductos}}</td>
+
+                <td>{{e.Nombre}}</td>
+
+                <td>{{e.Fragil}}</td>     
+
+                <td><a href="/TipoProducto/update_data?id={{e.IdTipoProductos}}">Update</a></td>
+                <td><a href="" ng-click="deleterecord(e.IdTipoProductos)">Delete</a></td>
+
+            </tr>
+
+        </table>    
+        @Html.ActionLink("Agregar", "Index", "TipoProducto", new { @class = "btn btn-primary" }, null)
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularController/TipoProductoAngularJS.js"></script>
+</body>
+
+</html>
+
+
+
+

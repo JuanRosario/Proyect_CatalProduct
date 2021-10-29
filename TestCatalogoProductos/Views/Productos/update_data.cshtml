@@ -1,0 +1,91 @@
+﻿
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div ng-app="Productosapp" ng-controller="ProductosController" data-ng-init="loadrecord(@Convert.ToInt32(Request.QueryString["id"]))">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-2"></div>
+
+                <div class="col-sm-8">
+
+                    <br />
+                    <h2>Productos</h2>
+
+                    
+
+                    <div class="form-group">
+
+                        <label>Nombre</label>
+
+                        <input type="text" ng-model="Productos.Nombre" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Descripcion</label>
+
+                        <input type="text" ng-model="Productos.Descripcion" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Tipo</label>
+                                             
+                        <select ng-model="Productos.Tipo" class="form-control">
+                            <option ng-repeat=" x in Tiposs" ng-value="{{x.IdTipoProductos}}">
+                                {{x.Nombre}}
+                            </option>
+                        </select>                        
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="button" class="btn btn-primary" ng-click="updatedata()" value="{{btntext}}" />
+                      @*  @Html.ActionLink("Show_data", "Show_data", "Productos", new { @class = "btn btn-primary" }, null)*@
+                        <input type="button" class="btn btn-primary" value="Show data" onclick="window.location = '/Productos/Show_data';" />
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-2"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="~/Scripts/angular.min.js"></script>
+
+    @*<script src="~/Scripts/AngularController/HomeAngularJS.js"></script>*@
+    <script src="~/Scripts/AngularController/ProductosAngulaJS.js"></script>
+</body>
+
+</html>
